@@ -1,0 +1,133 @@
+# formalization.yaml (v0.3): repo-root metadata for formalization projects.
+version: "v0.3"
+
+project:
+  name: "Asymptotic tensor rank semicontinuity (Lean 4)"
+  authors: ["Jeroen Zuiddam"]
+  license: "Apache-2.0"
+
+sources:
+  - title: "Asymptotic tensor rank is characterized by polynomials"
+    authors: ["Matthias Christandl", "Koen Hoeberechts", "Harold Nieuwboer", "Péter Vrana", "Jeroen Zuiddam"]
+    id: "arXiv:2411.15789"
+    type: "preprint"   # arXiv v2, revised 2026-06-07
+    # tex:LINE citations in docstrings refer to arXiv v2.
+    author_contacted: "n/a"   # formalization directed by a co-author
+    prior_work: "https://github.com/jzuiddam/asymptotic-spectrum-distance"
+  # Secondary sources used for the prerequisites (cited line-by-line in docstrings):
+  - title: "Asymptotic spectra: theory, applications and extensions"
+    authors: ["Avi Wigderson", "Jeroen Zuiddam"]
+    id: "doi:10.1090/bull/1880"   # Bull. Amer. Math. Soc. 63 (2026), 199-331
+    type: "secondary"
+  - title: "Relative bilinear complexity and matrix multiplication"
+    authors: ["Volker Strassen"]
+    id: "doi:10.1515/crll.1987.375-376.406"
+    type: "secondary"
+  - title: "The asymptotic spectrum of tensors"
+    authors: ["Volker Strassen"]
+    id: "doi:10.1515/crll.1988.384.102"
+    type: "secondary"
+  - title: "Degeneration and complexity of bilinear maps: some asymptotic spectra"
+    authors: ["Volker Strassen"]
+    id: "doi:10.1515/crll.1991.413.127"
+    type: "secondary"
+  - title: "Discreteness of asymptotic tensor ranks"
+    authors: ["Jop Briët", "Matthias Christandl", "Itai Leigh", "Amir Shpilka", "Jeroen Zuiddam"]
+    id: "arXiv:2306.01718"   # ITCS 2024, doi:10.4230/LIPIcs.ITCS.2024.20
+    type: "secondary"
+  - title: "Entanglement distillation from Greenberger-Horne-Zeilinger shares"
+    authors: ["Péter Vrana", "Matthias Christandl"]
+    id: "arXiv:1603.03964"
+    type: "secondary"
+  - title: "Computable algebra, general theory and theory of computable fields"
+    authors: ["Michael O. Rabin"]
+    id: "doi:10.1090/S0002-9947-1960-0113807-4"   # Trans. AMS 95 (1960)
+    type: "secondary"
+  - title: "Algebraic Geometry I: Complex Projective Varieties"
+    authors: ["David Mumford"]
+    id: "doi:10.1007/978-3-642-61833-8"   # Grundlehren 221, Springer
+    type: "secondary"
+  - title: "Geometrische Methoden in der Invariantentheorie"
+    authors: ["Hanspeter Kraft"]
+    id: "doi:10.1007/978-3-322-83813-1"   # Vieweg, 2nd rev. ed. 1985
+    type: "secondary"
+  - title: "Algebraic Complexity Theory"
+    authors: ["Peter Bürgisser", "Michael Clausen", "M. Amin Shokrollahi"]
+    id: "doi:10.1007/978-3-662-03338-8"   # Grundlehren 315, Springer 1997
+    type: "secondary"
+  - title: "Orthogonal representations and connectivity of graphs"
+    authors: ["László Lovász", "Michael Saks", "Alexander Schrijver"]
+    id: "doi:10.1016/0024-3795(89)90475-8"   # Linear Algebra Appl. 114-115 (1989)
+    type: "secondary"
+
+status:
+  scope: >
+    All results of the paper: the introduction's Theorems 1.1-1.6 and every
+    numbered result of sections 2-4 -- the algorithm deciding upper bounds on
+    asymptotic rank over computable fields, Zariski-closed sublevel sets and
+    semicontinuity of admissible functionals, well-ordering of asymptotic
+    rank and of every spectral point, Euclidean closedness over the complex
+    numbers, the tensor-to-matrix subrank bound, and the geometric
+    characterization of discreteness from below -- together with the
+    prerequisites these rest on (computable fields after Rabin, the
+    Strassen-preorder / asymptotic-spectrum duality machinery after the
+    Wigderson-Zuiddam survey, Baire/Mumford density, Kraft curve existence).
+    The main results are restated in AsymptoticTensorRankSemicontinuity/Main.lean.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms: ["propext", "Classical.choice", "Quot.sound"]
+  main_results:
+    - declaration: "Semicontinuity.computablePred_asympRank_le_uniform"
+      file: "AsymptoticTensorRankSemicontinuity/AlgorithmUniform.lean"
+      sorry_count: 0
+    - declaration: "Semicontinuity.isZariskiClosed_asympRank_sublevel"
+      file: "AsymptoticTensorRankSemicontinuity/Algorithm.lean"
+      sorry_count: 0
+    - declaration: "Semicontinuity.sublevel_zariski_closed"
+      file: "AsymptoticTensorRankSemicontinuity/ZariskiSublevel.lean"
+      sorry_count: 0
+    - declaration: "Semicontinuity.asympRank_values_wellOrdered"
+      file: "AsymptoticTensorRankSemicontinuity/ZariskiSublevel.lean"
+      sorry_count: 0
+    - declaration: "Semicontinuity.asympSpectrum_values_wellOrdered"
+      file: "AsymptoticTensorRankSemicontinuity/SpectrumWellOrdered.lean"
+      sorry_count: 0
+    - declaration: "Semicontinuity.asympRank_values_euclidean_closed"
+      file: "AsymptoticTensorRankSemicontinuity/EuclideanClosed.lean"
+      sorry_count: 0
+    - declaration: "Semicontinuity.asympSpectrum_values_euclidean_closed"
+      file: "AsymptoticTensorRankSemicontinuity/EuclideanClosed.lean"
+      sorry_count: 0
+    - declaration: "Semicontinuity.subrankPair_prod_ge_flatRank"
+      file: "AsymptoticTensorRankSemicontinuity/MaxRankBound.lean"
+      sorry_count: 0
+    - declaration: "Semicontinuity.minCut_flatRank_le_asympSubrank"
+      file: "AsymptoticTensorRankSemicontinuity/AsymptoticSubrank/Main.lean"
+      sorry_count: 0
+    - declaration: "Semicontinuity.asympRank_discreteFromBelow_iff"
+      file: "AsymptoticTensorRankSemicontinuity/DiscreteFromBelow.lean"
+      sorry_count: 0
+
+automation:
+  methods:
+    - method: "agent"
+      models: ["claude-opus-4-8"]
+      framework: "Claude Code"
+      tool_setup: "Claude Code (planning, implementation, verification), dispatching OpenAI Codex (codex exec) for specified proof implementations and independent audits; human direction and review throughout."
+      cost:
+        wall_time: "~19 active development days"
+  notes: >
+    Source-driven formalization: every definition and theorem is traced
+    line-by-line to the paper or to the secondary sources listed above.
+
+fidelity:
+  divergences: >
+    None: the main theorems are stated as in the paper, with no added
+    hypotheses.
+
+review:
+  status: "agent-reviewed, author-reviewed"
+  notes: >
+    Reviewed by paper co-author J. Zuiddam. Independent agent audits (statement
+    faithfulness against the paper, axiom usage of all main results) were run
+    during development.

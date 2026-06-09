@@ -1,0 +1,13 @@
+/-
+Copyright (c) 2026 Jeroen Zuiddam. All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Jeroen Zuiddam
+-/
+import AsymptoticTensorRankSemicontinuity.Prerequisites.Computability.AlgebraicClosure.FreshVars
+import AsymptoticTensorRankSemicontinuity.Prerequisites.Computability.AlgebraicClosure.GreedyU
+import AsymptoticTensorRankSemicontinuity.Prerequisites.Computability.AlgebraicClosure.GreedyProper
+import AsymptoticTensorRankSemicontinuity.Prerequisites.Computability.AlgebraicClosure.Recursive
+import AsymptoticTensorRankSemicontinuity.Prerequisites.Computability.AlgebraicClosure.GreedyMaximal
+import AsymptoticTensorRankSemicontinuity.Prerequisites.Computability.AlgebraicClosure.Closure
+import AsymptoticTensorRankSemicontinuity.Prerequisites.Computability.AlgebraicClosure.Properties
+import AsymptoticTensorRankSemicontinuity.Prerequisites.Computability.AlgebraicClosure.Coding
